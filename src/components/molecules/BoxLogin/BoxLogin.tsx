@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { LoginForm, StyledForm } from "./styles";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+import { api } from "../../../utils/api/api";
 
 const BoxLogin = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -9,13 +10,15 @@ const BoxLogin = () => {
     setShowPassword(!showPassword);
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const loginPayload = {
       email: e.currentTarget.email.value,
       password: e.currentTarget.password.value,
     };
-    console.log(loginPayload);
+    // console.log(loginPayload);
+    const userData = await api.login(loginPayload);
+    console.log(userData);
   }
 
   return (
