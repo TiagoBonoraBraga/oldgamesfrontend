@@ -1,11 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../../components/molecules/NavBar/NavBar";
-import ProductItemList from "../../components/molecules/ProductItemList/ProductItemList";
+import ProductItem from "../../components/molecules/ProductItem/ProductItem";
 import Seek from "../../components/molecules/Seek/Seek";
+import { api } from "../../utils/api/api";
 import { BoxHome } from "./style";
+
+export type game = {
+  id: string;
+  title: string;
+  CoverImageUrl: string;
+};
 
 const Home = () => {
   const [seek, setSeek] = useState("");
+
+  const [games, setGames] = useState<game[]>([]);
+
+  async function Games() {
+    const games = await api.getGames();
+    setGames(games);
+  }
+
+  useEffect(() => {
+    Games();
+  }, []);
+
+  console.log(games);
+
   return (
     <>
       <header>
@@ -14,7 +35,10 @@ const Home = () => {
       <main>
         <BoxHome>
           <Seek seek={seek} setSeek={setSeek} />
-          <ProductItemList seek={seek} />
+        
+          {games.map((game) => (
+            <ProductItem key={game.id} game={game} />
+          ))}
         </BoxHome>
       </main>
     </>

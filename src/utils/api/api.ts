@@ -42,5 +42,15 @@ export const api = {
   } catch (err) {
       console.error(err)
   }
-}
+},
+
+getGames: async () => {
+  try {
+    const response = await axios.get("/game");
+    return response.data;
+  } catch (err) {
+    alert(err);
+  }
+},
+
 }
