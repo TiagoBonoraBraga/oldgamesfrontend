@@ -1,14 +1,14 @@
-import { LoginRequest } from "../types/requests";
 import axios from "axios";
+import { LoginRequest } from "../types/requests";
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://xbox-live-api.onrender.com";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 axios.interceptors.request.use(
-  function (config) {
+  function (config: any) {
     const token = localStorage.getItem("token");
     if (token) {
-        config.headers = {
+      config.headers = {
         Authorization: "Bearer " + token,
       };
     }
@@ -29,18 +29,18 @@ axios.interceptors.response.use(
     }
   }
 );
-
 export const api = {
-  login: async ({ email, password }: LoginRequest) => {
-    try {
-      const response = await axios.post("api", {
-        email,
-        password,
-      });
+  login: async ({Email, Password}: LoginRequest) => {
+      try {
+          const response = await axios.post('/auth', {
+              Email,
+              Password,
+          });
+      console.log(response);
       localStorage.setItem("token", response.data.token);
       return response.data;
-    } catch (err) {
-      alert(err);
-    }
-  },
-};
+  } catch (err) {
+      console.error(err)
+  }
+}
+}

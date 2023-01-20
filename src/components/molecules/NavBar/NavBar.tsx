@@ -11,10 +11,10 @@ const NavBar = () => {
       <Menu>
         <ul>
           <li>
-            <NavLink to="/login">Entrar</NavLink>
+            <NavLink to="/auth">Entrar</NavLink>
           </li>
           <li>
-            <NavLink to="/login">Cadastre-se</NavLink>
+            <NavLink to="/auth">Cadastre-se</NavLink>
           </li>
         </ul>
       </Menu>
