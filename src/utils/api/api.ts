@@ -30,27 +30,37 @@ axios.interceptors.response.use(
   }
 );
 export const api = {
-  login: async ({Email, Password}: LoginRequest) => {
-      try {
-          const response = await axios.post('/auth', {
-              Email,
-              Password,
-          });
+  login: async ({ Email, Password }: LoginRequest) => {
+    try {
+      const response = await axios.post("/auth", {
+        Email,
+        Password,
+      });
       console.log(response);
       localStorage.setItem("token", response.data.token);
       return response.data;
-  } catch (err) {
-      console.error(err)
-  }
-},
+    } catch (err) {
+      console.error(err);
+    }
+  },
 
-getGames: async () => {
-  try {
-    const response = await axios.get("/game");
-    return response.data;
-  } catch (err) {
-    alert(err);
-  }
-},
+  getGames: async () => {
+    try {
+      const response = await axios.get("/game");
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
 
-}
+  createNewGame: async (game: string) => {
+    try {
+      const response = await axios.post("/game", {
+        game,
+      });
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  }
+};
