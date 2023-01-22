@@ -65,6 +65,7 @@ const CreateGame = () => {
           }}
           title={"Create Games"}
         />
+        
       </main>
     </>
   );

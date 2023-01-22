@@ -1,4 +1,6 @@
+import React from "react";
 import { FormEvent } from "react";
+import {FormContainer} from './style'
 
 export interface InputProps {
   placeholder: string;
@@ -14,7 +16,7 @@ export interface FormProps<T = FormEvent<HTMLFormElement>> {
 
 export function Form({ inputs, onSubmit, title }: FormProps) {
   return (
-    <section>
+    <FormContainer>
       <h2>{title}</h2>
 
       <form onSubmit={onSubmit}>
@@ -25,9 +27,9 @@ export function Form({ inputs, onSubmit, title }: FormProps) {
             name={input.name}
           />
         ))}
-        <button type="submit">Criar</button>
+        <button type="submit">Criar Novo Game</button>
       </form>
       
-    </section>
+    </FormContainer>
   );
 }
