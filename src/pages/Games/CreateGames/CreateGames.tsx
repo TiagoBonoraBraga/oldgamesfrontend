@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, InputProps } from "../../../components/atoms/form/form";
-import NavBar from "../../../components/molecules/NavBar/NavBar";
+// import NavBar from "../../../components/molecules/NavBar/NavBar";
+import { useNavigate } from "react-router-dom";
+import { CreateGameRequest } from "../../../utils/types/requests";
 import { api } from "../../../utils/api/api";
+import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
 
 const FormInputs: InputProps[] = [
   {
@@ -46,23 +49,42 @@ const FormInputs: InputProps[] = [
   },
 ];
 
-// async function CreateNewGame() {
-//   const data = await api.createNewGame();
-// }
-
 const CreateGame = () => {
+
+  const [error, setError] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+
+  async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const dataPayload: CreateGameRequest = {
+      Title: e.currentTarget.Title.value,
+      CoverImageUrl: e.currentTarget.CoverImageUrl.value,
+      Description: e.currentTarget.Description.value,
+      Year: e.currentTarget.Year.value,
+      ImdbScore: e.currentTarget.ImdbScore.value,
+      TrailerYouTubeUrl: e.currentTarget.TrailerYouTubeUrl.value,
+      GameplayYouTubeUrl: e.currentTarget.GameplayYouTubeUrl.value,
+      genres: e.currentTarget.genres.value,
+    }
+    console.log(dataPayload);
+    const gameData = await api.createNewGame(dataPayload)
+  
+    if (!gameData) {
+      setError(true);
+      return;
+    }
+    navigate("/homepage");
+  }
   return (
     <>
       <header>
-        <NavBar />
+        <NavBarAdm />
       </header>
       <main>
         <Form
           inputs={FormInputs}
-          onSubmit={(e) => {
-            e.preventDefault();
-            console.log(e.currentTarget);
-          }}
+          onSubmit={handleSubmit}
           title={"Create Games"}
         />
         

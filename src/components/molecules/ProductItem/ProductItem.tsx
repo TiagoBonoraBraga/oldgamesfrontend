@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import { Card, DetalisBtn, ImageItem, TitleItem } from './style';
 
 type ProductItemProps = {
@@ -19,7 +20,11 @@ const ProductItem = ({game}: ProductItemProps) => {
         </TitleItem>
         <DetalisBtn>
             <button>Detalhes</button>
-            <button>Editar</button>
+
+           <NavLink to="/updategame">
+           <button>Editar</button>
+           </NavLink> 
+
         </DetalisBtn>
     </Card>
   )

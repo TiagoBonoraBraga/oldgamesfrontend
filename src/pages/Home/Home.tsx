@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../../components/molecules/NavBar/NavBar";
+// import NavBar from "../../components/molecules/NavBar/NavBar";
+import NavBarAdm from "../../components/molecules/NavBarAdm/NavBarAdm";
 import ProductItem from "../../components/molecules/ProductItem/ProductItem";
 import { api } from "../../utils/api/api";
 import { BoxHome } from "./style";
@@ -37,7 +38,7 @@ const Home = () => {
   return (
     <>
       <header>
-        <NavBar />
+        <NavBarAdm />
       </header>
       <main>
         <BoxHome>

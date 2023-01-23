@@ -11,13 +11,13 @@ const NavBarAdm = () => {
       <Menu>
         <ul>
           <li>
-            <NavLink to="/">Perfil</NavLink>
+            <NavLink to="/perfil">Perfil</NavLink>
           </li>
           <li>
-            <NavLink to="/">Adicionar</NavLink>
+            <NavLink to="/creategame">Adicionar Games</NavLink>
           </li>
           <li>
-            <NavLink to="/">Cadastrar-se</NavLink>
+            <NavLink to="/createUser">Cadastrar-se</NavLink>
           </li>
         </ul>
       </Menu>

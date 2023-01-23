@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LoginRequest } from "../types/requests";
+import { CreateGameRequest, LoginRequest } from "../types/requests";
 
 axios.defaults.baseURL = "https://xbox-live-api.onrender.com";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -53,11 +53,18 @@ export const api = {
     }
   },
 
-  createNewGame: async (game: string) => {
+  createNewGame: async (payload: CreateGameRequest) => {
     try {
-      const response = await axios.post("/game", {
-        game,
-      });
+      const response = await axios.post("/game", payload);
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
+  updateGame: async (payload: CreateGameRequest) => {
+    try {
+      const response = await axios.patch("/game", payload);
       return response.data;
     } catch (err) {
       alert(err);

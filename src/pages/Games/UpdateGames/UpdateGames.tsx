@@ -1,10 +1,13 @@
 import React from 'react'
+import NavBarAdm from '../../../components/molecules/NavBarAdm/NavBarAdm'
 
 const UpdateGames = () => {
   return (
-    <div>
-      
-    </div>
+   <>
+   <header>
+        <NavBarAdm />
+      </header>
+   </>
   )
 }
 
