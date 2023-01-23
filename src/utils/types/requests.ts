@@ -11,5 +11,5 @@ export type CreateGameRequest = {
     ImdbScore: number;
     TrailerYouTubeUrl: string;
     GameplayYouTubeUrl: string;
-    genres: string;
+    genres: string[];
 }

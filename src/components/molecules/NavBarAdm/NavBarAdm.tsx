@@ -14,7 +14,7 @@ const NavBarAdm = () => {
             <NavLink to="/perfil">Perfil</NavLink>
           </li>
           <li>
-            <NavLink to="/creategame">Adicionar Games</NavLink>
+            <NavLink to="/creategame">Criar Novos Games</NavLink>
           </li>
           <li>
             <NavLink to="/createUser">Cadastrar-se</NavLink>

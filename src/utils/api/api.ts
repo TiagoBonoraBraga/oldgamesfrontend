@@ -8,9 +8,7 @@ axios.interceptors.request.use(
   function (config: any) {
     const token = localStorage.getItem("token");
     if (token) {
-      config.headers = {
-        Authorization: "Bearer " + token,
-      };
+      config.headers.Authorization = 'Bearer ' + token;
     }
     return config;
   },
@@ -64,7 +62,7 @@ export const api = {
 
   updateGame: async (payload: CreateGameRequest) => {
     try {
-      const response = await axios.patch("/game", payload);
+      const response = await axios.patch("/game/{id}", payload);
       return response.data;
     } catch (err) {
       alert(err);

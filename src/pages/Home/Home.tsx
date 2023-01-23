@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import NavBarAdm from "../../components/molecules/NavBarAdm/NavBarAdm";
 import ProductItem from "../../components/molecules/ProductItem/ProductItem";
 import { api } from "../../utils/api/api";
+import CreateGame from "../Games/CreateGames/CreateGames";
 import { BoxHome } from "./style";
 
 export type game = {
@@ -16,6 +17,7 @@ const Home = () => {
 
   const [games, setGames] = useState<game[]>([]);
   const [search, setSearch] = useState("");
+  // const [control, setControl] = useState<boolean>(false);
 
   async function Games() {
     const games = await api.getGames();
@@ -29,9 +31,16 @@ const Home = () => {
         )
       : games;
 
+    
+  // function handleControl() {
+  //   setControl(!control);
+  // }
+
   useEffect(() => {
     Games();
   }, []);
+
+
 
   console.log("renderizou");
 

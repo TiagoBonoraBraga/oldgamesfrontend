@@ -24,6 +24,7 @@ const ProductItem = ({game}: ProductItemProps) => {
            <NavLink to="/updategame">
            <button>Editar</button>
            </NavLink> 
+           <button>Deletar</button>
 
         </DetalisBtn>
     </Card>

@@ -6,20 +6,23 @@ export interface InputProps {
   placeholder: string;
   type: string;
   name: string;
+  
 }
 
 export interface FormProps<T = FormEvent<HTMLFormElement>> {
   title: string;
   inputs: InputProps[];
   onSubmit: (value: T) => void;
+ 
 }
 
-export function Form({ inputs, onSubmit, title }: FormProps) {
+export function Form({ inputs, onSubmit, title}: FormProps) {
   return (
     <FormContainer>
       <h2>{title}</h2>
 
       <form onSubmit={onSubmit}>
+        
         {inputs.map((input) => (
           <input
             type={input.type}
@@ -27,7 +30,7 @@ export function Form({ inputs, onSubmit, title }: FormProps) {
             name={input.name}
           />
         ))}
-        <button type="submit">Criar Novo Game</button>
+        <button type="submit">{title}</button>
       </form>
       
     </FormContainer>
