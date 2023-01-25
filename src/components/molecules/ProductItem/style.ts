@@ -37,34 +37,51 @@ export const YearScoreItem = styled.div`
   }
 `;
 export const DetalisBtn = styled.button`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    margin-bottom: .5rem;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    padding: .5rem 2.5rem;
-     gap:10px;
-
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 2.5rem;
+  gap: 5px;
 `;
 export const EditBtn = styled.button`
-   
-    
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0.5rem;
+  border: none;
+  background-color: #85929e;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 2.5rem;
+  width: 150px;
+  gap: 2px;
+  transition: all 0.7s;
+      &:hover {
+        background-color: aquamarine;
+        color:#ffffff;
+        padding: 0.7rem 1.5rem;
+      }
+`;
+
+export const DeleteBtn = styled.button`
     justify-content: center;
-    border-radius: 5px;
-    margin-bottom: .5rem;
-    border: none;
-    background-color: #85929E ;
-    cursor: pointer;
-    font-weight: 600;
-    padding: .5rem 2.5rem;
-    width: 150px;
-    gap:10px;
-
-
+  border-radius: 5px;
+  margin: 0.5rem;
+  border: none;
+  background-color: #85929e;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 2.5rem;
+  width: 150px;
+  gap: 2px;
+  transition: all 0.7s;
+      &:hover {
+        background-color: red;
+        color:#ffffff;
+        padding: 0.7rem 1.5rem;
+      }
 `
-
-

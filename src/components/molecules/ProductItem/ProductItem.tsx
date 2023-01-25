@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { api } from '../../../utils/api/api';
-import { Card, DetalisBtn,  EditBtn,  ImageItem, TitleItem } from './style';
+import { Card, DeleteBtn, DetalisBtn,  EditBtn,  ImageItem, TitleItem } from './style';
 import { useNavigate } from "react-router-dom";
 
 type ProductItemProps = {
@@ -36,9 +36,9 @@ const ProductItem = ({game, gameRemovido}: ProductItemProps) => {
            </Link> 
             
 
-           <EditBtn onClick={handleDeleteGame}>Deletar</EditBtn>
-
+           <DeleteBtn onClick={handleDeleteGame}>Deletar</DeleteBtn>
         </DetalisBtn>
+
     </Card>
   )
 }
