@@ -8,7 +8,7 @@ import { LoginRequest } from "../../../utils/types/requests";
 const BoxLogin = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  
+
   const navigate = useNavigate();
 
   function handleShowPassword() {
@@ -24,7 +24,7 @@ const BoxLogin = () => {
     };
     console.log(loginPayload);
     const userData = await api.login(loginPayload);
-    
+
     console.log(userData);
     if (!userData) {
       setError(true);
@@ -36,14 +36,13 @@ const BoxLogin = () => {
   return (
     <LoginForm>
       <h2>Login</h2>
-      <StyledForm onSubmit={handleSubmit}  >
+      <StyledForm onSubmit={handleSubmit}>
         <input placeholder="Seu E-mail" name="email" required />
         <div>
           <input
             placeholder="Sua Senha"
             type={showPassword ? "text" : "password"}
             name="password"
-            
             required
           />
           <button onClick={handleShowPassword}>

@@ -6,8 +6,6 @@ import { CreateGameRequest } from "../../../utils/types/requests";
 import { api } from "../../../utils/api/api";
 import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
 
-
-
 const CreateGame = () => {
   const FormInputs: InputProps[] = [
     {
@@ -69,7 +67,6 @@ const CreateGame = () => {
     };
     console.log(dataPayload);
     const gameData = await api.createNewGame(dataPayload);
-   
 
     if (!gameData) {
       setError(true);

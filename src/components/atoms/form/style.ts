@@ -32,7 +32,7 @@ export const FormContainer = styled.section`
       transition: all 0.7s;
       &:hover {
         background-color: aquamarine;
-        color:#ffffff;
+        color: #ffffff;
         padding: 0.7rem 1.5rem;
       }
     }

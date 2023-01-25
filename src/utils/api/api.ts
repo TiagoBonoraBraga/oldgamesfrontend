@@ -1,5 +1,9 @@
 import axios from "axios";
-import { CreateGameRequest, LoginRequest, UpdateGameRequest } from "../types/requests";
+import {
+  CreateGameRequest,
+  LoginRequest,
+  UpdateGameRequest,
+} from "../types/requests";
 
 axios.defaults.baseURL = "https://xbox-live-api.onrender.com";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -8,7 +12,7 @@ axios.interceptors.request.use(
   function (config: any) {
     const token = localStorage.getItem("token");
     if (token) {
-      config.headers.Authorization = 'Bearer ' + token;
+      config.headers.Authorization = "Bearer " + token;
     }
     return config;
   },
@@ -42,7 +46,7 @@ export const api = {
     }
   },
 
-//crud games
+  //crud games
   getGames: async () => {
     try {
       const response = await axios.get("/game");

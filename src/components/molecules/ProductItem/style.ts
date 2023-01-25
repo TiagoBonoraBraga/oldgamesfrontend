@@ -60,15 +60,15 @@ export const EditBtn = styled.button`
   width: 150px;
   gap: 2px;
   transition: all 0.7s;
-      &:hover {
-        background-color: aquamarine;
-        color:#ffffff;
-        padding: 0.7rem 1.5rem;
-      }
+  &:hover {
+    background-color: aquamarine;
+    color: #ffffff;
+    padding: 0.7rem 1.5rem;
+  }
 `;
 
 export const DeleteBtn = styled.button`
-    justify-content: center;
+  justify-content: center;
   border-radius: 5px;
   margin: 0.5rem;
   border: none;
@@ -79,9 +79,9 @@ export const DeleteBtn = styled.button`
   width: 150px;
   gap: 2px;
   transition: all 0.7s;
-      &:hover {
-        background-color: red;
-        color:#ffffff;
-        padding: 0.7rem 1.5rem;
-      }
-`
+  &:hover {
+    background-color: red;
+    color: #ffffff;
+    padding: 0.7rem 1.5rem;
+  }
+`;

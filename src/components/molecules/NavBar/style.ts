@@ -38,7 +38,6 @@ export const Menu = styled.div`
       &:hover {
         /* background-color: aquamarine; */
         padding: 0.7rem 1.5rem;
-        
       }
       a {
         text-decoration: none;

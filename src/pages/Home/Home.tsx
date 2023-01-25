@@ -52,7 +52,11 @@ const Home = () => {
         </BoxSearch>
         <BoxHome>
           {sortedGames.map((game) => (
-            <ProductItem key={game.id} game={game} gameRemovido={gameRemovido}/>
+            <ProductItem
+              key={game.id}
+              game={game}
+              gameRemovido={gameRemovido}
+            />
           ))}
         </BoxHome>
       </main>

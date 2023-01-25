@@ -60,7 +60,6 @@ export const StyledForm = styled.form`
       border-radius: 0 5px 5px 0;
       height: 35px;
       background-color: #ffffff;
-      
     }
   }
 
