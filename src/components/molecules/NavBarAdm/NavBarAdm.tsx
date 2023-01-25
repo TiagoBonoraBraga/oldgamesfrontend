@@ -6,7 +6,7 @@ const NavBarAdm = () => {
   return (
     <Container>
       <LogoNavBar>
-        <NavLink to="/">Old Games</NavLink>
+        <NavLink to="/homepage">Old Games</NavLink>
       </LogoNavBar>
       <Menu>
         <ul>
@@ -14,7 +14,10 @@ const NavBarAdm = () => {
             <NavLink to="/perfil">Perfil</NavLink>
           </li> */}
           <li>
-            <NavLink to="/creategame">Criar Novos Games</NavLink>
+            <NavLink to="/creategame">CRIAR NOVOS GAMES</NavLink>
+          </li>
+          <li>
+            <NavLink to="/homepage">HOME</NavLink>
           </li>
           {/* <li>
             <NavLink to="/createUser">Cadastrar-se</NavLink>
