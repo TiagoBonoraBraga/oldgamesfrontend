@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { api } from "../../../utils/api/api";
 import {
   Card,
@@ -13,16 +13,17 @@ import { useNavigate } from "react-router-dom";
 
 type ProductItemProps = {
   game: any;
-  gameRemovido: any;
+  handleControl: () => void;
 };
 
-const ProductItem = ({ game, gameRemovido }: ProductItemProps) => {
-  const navigate = useNavigate();
+const ProductItem = ({ game, handleControl }: ProductItemProps) => {
+  
   const { CoverImageUrl, Title, id } = game;
+  
 
   async function handleDeleteGame() {
     await api.deleteGame(game.id);
-    gameRemovido = true;
+    handleControl();
   }
 
   return (
@@ -36,7 +37,7 @@ const ProductItem = ({ game, gameRemovido }: ProductItemProps) => {
       <DetalisBtn>
         {/* <button>Detalhes</button> */}
 
-        <Link to="/updategame">
+        <Link to={"/updategame/" + game.id}>
           <EditBtn>Editar</EditBtn>
         </Link>
 

@@ -14,21 +14,9 @@ function App() {
         <Route path="/homepage" element={<Home />} />
         <Route path="/creategame" element={<CreateGames />} />
         <Route
-          path="/updategame"
+          path="/updategame/:id"
           element={
-            <UpdateGames
-              game={{
-                id: "",
-                Title: "",
-                CoverImageUrl: "",
-                Description: "",
-                Year: 0,
-                ImdbScore: 0,
-                TrailerYouTubeUrl: "",
-                GameplayYouTubeUrl: "",
-                genres: [],
-              }}
-            />
+            <UpdateGames/>
           }
         />
         <Route path="/createUser" element={<Perfil />} />

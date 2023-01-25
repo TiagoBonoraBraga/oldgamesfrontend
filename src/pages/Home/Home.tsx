@@ -15,12 +15,15 @@ export type game = {
 const Home = () => {
   const [games, setGames] = useState<game[]>([]);
   const [search, setSearch] = useState("");
-  const [gameRemovido, setGameRemovido] = useState();
+  const [control, setControl] = useState<boolean>(false);
 
   async function Games() {
     const games = await api.getGames();
     setGames(games);
   }
+   function handleControl() {
+    setControl(!control);
+   }
 
   const sortedGames =
     search.length > 0
@@ -31,7 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     Games();
-  }, []);
+  }, [control]);
 
   console.log("renderizou");
 
@@ -55,7 +58,7 @@ const Home = () => {
             <ProductItem
               key={game.id}
               game={game}
-              gameRemovido={gameRemovido}
+              handleControl={handleControl}
             />
           ))}
         </BoxHome>

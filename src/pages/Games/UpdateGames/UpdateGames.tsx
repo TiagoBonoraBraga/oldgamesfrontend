@@ -2,28 +2,25 @@ import React, { useState } from "react";
 import { Form, InputProps } from "../../../components/atoms/form/form";
 import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
 import { api } from "../../../utils/api/api";
-import {  UpdateGameRequest } from "../../../utils/types/requests";
-import { useNavigate } from "react-router-dom";
+import { UpdateGameRequest } from "../../../utils/types/requests";
+import { useNavigate, useParams } from "react-router-dom";
 import { Game } from "../../../utils/types/data";
 
 export interface UpdateGameFormProps {
   game: Game;
 }
 
-
-
-const UpdateGames = ({game}: UpdateGameFormProps) => {
-
+const UpdateGames = () => {
   const [error, setError] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  const {id} = useParams();
 
   const FormInputs: InputProps[] = [
     {
       name: "Title",
       type: "text",
       placeholder: "Nome do game",
-      defaultValue: game.Title,
-     
     },
     {
       name: "Description",
@@ -61,11 +58,10 @@ const UpdateGames = ({game}: UpdateGameFormProps) => {
       placeholder: "link - Imagem do game",
     },
   ];
-  
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const dataPayload = {      
-      
+    const dataPayload = {
       Title: e.currentTarget.Title.value,
       CoverImageUrl: e.currentTarget.CoverImageUrl.value,
       Description: e.currentTarget.Description.value,
@@ -75,16 +71,17 @@ const UpdateGames = ({game}: UpdateGameFormProps) => {
       GameplayYouTubeUrl: e.currentTarget.GameplayYouTubeUrl.value,
       genres: [e.currentTarget.genres.value],
     };
-    console.log({...dataPayload, id: game.id});
-   const gameData = await api.updateGame({...dataPayload, id: game.id});
+
+    console.log({ ...dataPayload, id });
+
+    const gameData = await api.updateGame({ ...dataPayload, id });
 
     if (!gameData) {
       setError(true);
       return;
     }
-    
+    navigate("/homepage");
   }
-  
 
   return (
     <>
