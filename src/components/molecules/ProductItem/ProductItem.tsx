@@ -36,7 +36,7 @@ const ProductItem = ({game, gameRemovido}: ProductItemProps) => {
            </Link> 
             
 
-           <button onClick={handleDeleteGame}>Deletar</button>
+           <EditBtn onClick={handleDeleteGame}>Deletar</EditBtn>
 
         </DetalisBtn>
     </Card>
