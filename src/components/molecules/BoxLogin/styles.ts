@@ -7,7 +7,7 @@ export const LoginForm = styled.div`
   align-items: center;
   width: 80%;
   max-width: 400px;
-  border: 1px solid #ffffff;
+  /* border: 1px solid #ffffff; */
   height: 600px;
   h2 {
     margin: 20px;
@@ -60,6 +60,7 @@ export const StyledForm = styled.form`
       border-radius: 0 5px 5px 0;
       height: 35px;
       background-color: #ffffff;
+      
     }
   }
 
@@ -71,5 +72,6 @@ export const StyledForm = styled.form`
     padding: 5px 10px;
     margin: 10px;
     cursor: pointer;
+    width: 50px;
   }
 `;

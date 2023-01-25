@@ -13,7 +13,17 @@ function App() {
                 <Route path="/" element={<Login />} />
                 <Route path="/homepage" element={<Home />} />
                 <Route path="/creategame" element={<CreateGames />} /> 
-                <Route path="/updategame" element={<UpdateGames />} /> 
+                <Route path="/updategame" element={<UpdateGames game={{
+          id: "",
+          Title: "",
+          CoverImageUrl: "",
+          Description: "",
+          Year: 0,
+          ImdbScore: 0,
+          TrailerYouTubeUrl: "",
+          GameplayYouTubeUrl: "",
+          genres: []
+        }} />} /> 
                 <Route path="/createUser" element={<Perfil />} />   
                 <Route path="/perfil" element={<Perfil />} />              
             </Routes>

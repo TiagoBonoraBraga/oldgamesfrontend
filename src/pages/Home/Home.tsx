@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import NavBarAdm from "../../components/molecules/NavBarAdm/NavBarAdm";
 import ProductItem from "../../components/molecules/ProductItem/ProductItem";
 import { api } from "../../utils/api/api";
-import CreateGame from "../Games/CreateGames/CreateGames";
-import { BoxHome } from "./style";
+// import CreateGame from "../Games/CreateGames/CreateGames";
+import { BoxHome, BoxSearch } from "./style";
 
 export type game = {
   id: string;
@@ -13,11 +13,9 @@ export type game = {
 };
 
 const Home = () => {
-
-
   const [games, setGames] = useState<game[]>([]);
   const [search, setSearch] = useState("");
-  // const [control, setControl] = useState<boolean>(false);
+  const [gameRemovido, setGameRemovido] = useState();
 
   async function Games() {
     const games = await api.getGames();
@@ -31,16 +29,9 @@ const Home = () => {
         )
       : games;
 
-    
-  // function handleControl() {
-  //   setControl(!control);
-  // }
-
   useEffect(() => {
     Games();
   }, []);
-
-
 
   console.log("renderizou");
 
@@ -50,7 +41,7 @@ const Home = () => {
         <NavBarAdm />
       </header>
       <main>
-        <BoxHome>
+        <BoxSearch>
           <input
             type="text"
             onChange={(e) => {
@@ -58,11 +49,11 @@ const Home = () => {
             }}
             placeholder="Search"
           />
-
+        </BoxSearch>
+        <BoxHome>
           {sortedGames.map((game) => (
-            <ProductItem key={game.id} game={game} />
+            <ProductItem key={game.id} game={game} gameRemovido={gameRemovido}/>
           ))}
-
         </BoxHome>
       </main>
     </>

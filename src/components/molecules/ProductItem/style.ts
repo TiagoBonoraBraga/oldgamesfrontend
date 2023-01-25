@@ -5,7 +5,7 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 1rem;
-  height: 570px;
+  height: 500px;
   width: 250px;
   border-radius: 20px;
   background-color: #cbd3df;
@@ -16,6 +16,7 @@ export const ImageItem = styled.div`
   margin-top: 1rem;
   img {
     width: 200px;
+    min-height: 300px;
   }
 `;
 
@@ -37,6 +38,7 @@ export const YearScoreItem = styled.div`
 `;
 export const DetalisBtn = styled.button`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     border-radius: 10px;
     margin-bottom: .5rem;
@@ -44,7 +46,25 @@ export const DetalisBtn = styled.button`
     cursor: pointer;
     font-weight: 600;
     padding: .5rem 2.5rem;
-    width: 150px;
-`;
+     gap:10px;
 
-export const EditBtn = styled.button``;
+    
+`;
+export const EditBtn = styled.button`
+   
+    
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: .5rem;
+    border: none;
+    background-color: #85929E ;
+    cursor: pointer;
+    font-weight: 600;
+    padding: .5rem 2.5rem;
+    width: 150px;
+    gap:10px;
+
+
+`
+
+

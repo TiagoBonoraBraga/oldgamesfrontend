@@ -28,7 +28,7 @@ const CreateGame = () => {
     {
       name: "ImdbScore",
       type: "text",
-      placeholder: "Nota de Avaliação do game",
+      placeholder: "Nota de Avaliação do game: (0 - 5) PONTOS",
     },
     {
       name: "TrailerYouTubeUrl",
@@ -43,7 +43,7 @@ const CreateGame = () => {
     {
       name: "genres",
       type: "text",
-      placeholder: "Gênero do Game",
+      placeholder: "Id do Gênero do Game",
     },
     {
       name: "CoverImageUrl",

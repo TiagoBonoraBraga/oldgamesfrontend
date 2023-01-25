@@ -1,14 +1,23 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
-import { Card, DetalisBtn, ImageItem, TitleItem } from './style';
+import { Link, NavLink } from 'react-router-dom';
+import { api } from '../../../utils/api/api';
+import { Card, DetalisBtn,  EditBtn,  ImageItem, TitleItem } from './style';
+import { useNavigate } from "react-router-dom";
 
 type ProductItemProps = {
     game: any;
+    gameRemovido: any;
 };
 
-const ProductItem = ({game}: ProductItemProps) => {
+const ProductItem = ({game, gameRemovido}: ProductItemProps) => {
 
-  const { CoverImageUrl, Title, id } = game;
+    const navigate = useNavigate();
+    const { CoverImageUrl, Title, id } = game;
+    
+    async function handleDeleteGame() {
+        await api.deleteGame(game.id);
+        gameRemovido = true;
+    }
 
   return (
     <Card>
@@ -19,12 +28,15 @@ const ProductItem = ({game}: ProductItemProps) => {
             <h2>{game.Title}</h2>
         </TitleItem>
         <DetalisBtn>
-            <button>Detalhes</button>
+            {/* <button>Detalhes</button> */}
+            
+            
+           <Link to="/updategame">
+           <EditBtn>Editar</EditBtn>
+           </Link> 
+            
 
-           <NavLink to="/updategame">
-           <button>Editar</button>
-           </NavLink> 
-           <button>Deletar</button>
+           <button onClick={handleDeleteGame}>Deletar</button>
 
         </DetalisBtn>
     </Card>

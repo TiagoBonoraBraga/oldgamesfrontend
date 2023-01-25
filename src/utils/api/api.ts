@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateGameRequest, LoginRequest } from "../types/requests";
+import { CreateGameRequest, LoginRequest, UpdateGameRequest } from "../types/requests";
 
 axios.defaults.baseURL = "https://xbox-live-api.onrender.com";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -42,6 +42,7 @@ export const api = {
     }
   },
 
+//crud games
   getGames: async () => {
     try {
       const response = await axios.get("/game");
@@ -60,12 +61,21 @@ export const api = {
     }
   },
 
-  updateGame: async (payload: CreateGameRequest) => {
+  updateGame: async (payload: UpdateGameRequest) => {
     try {
-      const response = await axios.patch("/game/{id}", payload);
+      const response = await axios.patch(`/game/${payload.id}`, payload);
       return response.data;
     } catch (err) {
       alert(err);
     }
-  }
+  },
+
+  deleteGame: async (payload: string) => {
+    try {
+      const response = await axios.delete(`/game/${payload}`);
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
 };
