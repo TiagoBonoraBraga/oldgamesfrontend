@@ -74,3 +74,18 @@ export const StyledForm = styled.form`
     width: 50px;
   }
 `;
+
+export const CadastroBtn = styled.button`
+    width: 100px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover{
+      background-color: #778899;
+      width: 120px;
+      opacity: 1;
+    }
+`

@@ -56,6 +56,18 @@ export const api = {
     }
   },
 
+  getGameById: async (id: string) => {
+    try {
+      const response = await axios.get(`/game/${id}`);
+      if (!response.data) {
+        throw new Error("game não encontrado");
+      }
+      return response.data;
+    } catch (err){
+      alert(err);
+    }
+  },
+
   createNewGame: async (payload: CreateGameRequest) => {
     try {
       const response = await axios.post("/game", payload);
@@ -67,7 +79,7 @@ export const api = {
 
   updateGame: async (payload: UpdateGameRequest) => {
     try {
-      const response = await axios.patch(`/game/${payload.id}`, payload);
+      const response = await axios.patch("/game/"+ payload.id, payload);
       return response.data;
     } catch (err) {
       alert(err);

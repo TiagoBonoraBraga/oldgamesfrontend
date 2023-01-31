@@ -1,8 +1,8 @@
 import { FormEvent, useState } from "react";
-import { LoginForm, StyledForm } from "./styles";
+import { CadastroBtn, LoginForm, StyledForm } from "./styles";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { api } from "../../../utils/api/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginRequest } from "../../../utils/types/requests";
 
 const BoxLogin = () => {
@@ -55,6 +55,9 @@ const BoxLogin = () => {
         </div>
         <button type="submit">Login</button>
       </StyledForm>
+      <Link to={"/createUser"}>
+        <CadastroBtn>Cadastre-se</CadastroBtn>
+      </Link>
     </LoginForm>
   );
 };

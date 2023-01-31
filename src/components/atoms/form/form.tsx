@@ -6,7 +6,7 @@ export interface InputProps {
   placeholder: string;
   type: string;
   name: string;
-  defaultValue?: string;
+  defaultValue?: string | number | string[];
 }
 
 export interface FormProps<T = FormEvent<HTMLFormElement>> {
@@ -26,6 +26,7 @@ export function Form({ inputs, onSubmit, title }: FormProps) {
             type={input.type}
             placeholder={input.placeholder}
             name={input.name}
+            defaultValue={input.defaultValue}
           />
         ))}
         <button type="submit">{title}</button>
