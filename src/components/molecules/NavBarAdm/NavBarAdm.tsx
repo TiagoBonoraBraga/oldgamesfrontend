@@ -20,7 +20,10 @@ const NavBarAdm = () => {
             <NavLink to="/homepage">HOME</NavLink>
           </li>
           <li>
-            <NavLink to="/createProfile">PROFILE</NavLink>
+            <NavLink to="/profiles">PROFILES</NavLink>
+          </li>
+          <li>
+            <NavLink to="/createProfile"> CRIAR PROFILES</NavLink>
           </li>
         </ul>
       </Menu>

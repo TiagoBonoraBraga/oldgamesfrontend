@@ -6,17 +6,22 @@ import { Profile } from "../../utils/types/requests";
 
 const Profiles = () => {
   const [profileList, setProfileList] = useState<Profile[]>([]);
+  const [control, setControl] = useState<boolean>(false);
 
   async function AddProfiles() {
     const userId: string | null = localStorage.getItem('userId')
-    console.log(`userId: ${userId}`)
+    // console.log(`userId: ${userId}`)
     const profiles = await api.getProfile(userId);
     setProfileList(profiles);
   }
 
+  function handleControl() {
+    setControl(!control);
+   }
+
   useEffect(() => {
     AddProfiles();
-  },[]);
+  },[control]);
 
   return (
     <>
@@ -26,7 +31,7 @@ const Profiles = () => {
       <main>
         <div>
           {profileList.map((profile) => (
-            <CardProfile profile={profile}  key={profile.id} />
+            <CardProfile profile={profile}  key={profile.id}  handleControl={handleControl} />
           ))}
         </div>
       </main>
