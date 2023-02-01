@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   CreateGameRequest,
+  CreateProfileRequest,
   LoginRequest,
   UpdateGameRequest,
 } from "../types/requests";
@@ -63,7 +64,7 @@ export const api = {
         throw new Error("game não encontrado");
       }
       return response.data;
-    } catch (err){
+    } catch (err) {
       alert(err);
     }
   },
@@ -79,7 +80,7 @@ export const api = {
 
   updateGame: async (payload: UpdateGameRequest) => {
     try {
-      const response = await axios.patch("/game/"+ payload.id, payload);
+      const response = await axios.patch("/game/" + payload.id, payload);
       return response.data;
     } catch (err) {
       alert(err);
@@ -94,4 +95,28 @@ export const api = {
       alert(err);
     }
   },
+
+  //Crud Users
+
+  createNewProfile: async (payload: CreateProfileRequest) => {
+    try {
+      console.log(payload)
+      const response = await axios.post("/profile", payload);
+      console.log(`api: ${response}`)
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+  getProfile: async (id: string | null) => {
+    try {
+      console.log(id)
+      const response = await axios.get("/profile/" + id);
+      console.log(response)
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
 };

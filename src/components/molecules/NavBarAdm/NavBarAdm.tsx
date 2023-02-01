@@ -20,7 +20,7 @@ const NavBarAdm = () => {
             <NavLink to="/homepage">HOME</NavLink>
           </li>
           <li>
-            <NavLink to="/createUser">CADASTRE-SE</NavLink>
+            <NavLink to="/createProfile">PROFILE</NavLink>
           </li>
         </ul>
       </Menu>

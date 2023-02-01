@@ -19,9 +19,6 @@ export type game = {
       GameplayYouTubeUrl: string,
       genres:string[],
 };
-// export type GameCardProps = {
-//   game?: Game;
-// };
 
 const Home = () => {
   const [games, setGames] = useState<game[]>([]);

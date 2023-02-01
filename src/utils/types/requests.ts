@@ -25,3 +25,15 @@ export type UpdateGameRequest = {
   GameplayYouTubeUrl?: string;
   genres?: string[];
 };
+
+export type CreateProfileRequest = {
+  Title: string;
+  ImageURL: string;
+  
+}
+
+export type Profile = {
+  id: string;
+  Title: string;
+  ImageURL: string;
+}
