@@ -1,8 +1,10 @@
 import axios from "axios";
 import {
   CreateGameRequest,
+  CreateProfileRequest,
   LoginRequest,
   UpdateGameRequest,
+  User,
 } from "../types/requests";
 
 axios.defaults.baseURL = "https://xbox-live-api.onrender.com";
@@ -38,7 +40,7 @@ export const api = {
         Email,
         Password,
       });
-      console.log(response);
+      // console.log(response);
       localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (err) {
@@ -56,6 +58,18 @@ export const api = {
     }
   },
 
+  getGameById: async (id: string) => {
+    try {
+      const response = await axios.get(`/game/${id}`);
+      if (!response.data) {
+        throw new Error("game não encontrado");
+      }
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
   createNewGame: async (payload: CreateGameRequest) => {
     try {
       const response = await axios.post("/game", payload);
@@ -67,7 +81,7 @@ export const api = {
 
   updateGame: async (payload: UpdateGameRequest) => {
     try {
-      const response = await axios.patch(`/game/${payload.id}`, payload);
+      const response = await axios.patch("/game/" + payload.id, payload);
       return response.data;
     } catch (err) {
       alert(err);
@@ -82,4 +96,51 @@ export const api = {
       alert(err);
     }
   },
+
+  //Crud Profile
+
+  createNewProfile: async (payload: CreateProfileRequest) => {
+    try {
+      // console.log(payload)
+      const response = await axios.post("/profile", payload);
+      // console.log(`api: ${response}`)
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+  getProfile: async (id: string | null) => {
+    try {
+      // console.log(id)
+      const response = await axios.get("/profile/" + id);
+      // console.log(response)
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
+  deleteProfile: async (payload: string) => {
+    try {
+      const response = await axios.delete(`/profile/${payload}`);
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
+  // CRUD USERS
+
+  createUser: async (payload: User) => {
+    try{
+      const response = await axios.post("/user", payload);
+      return response.data;
+    } catch (err) {
+      alert (err)
+    }
+  }
 };
+
+
+
+

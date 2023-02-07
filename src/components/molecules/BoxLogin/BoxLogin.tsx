@@ -1,8 +1,8 @@
 import { FormEvent, useState } from "react";
-import { LoginForm, StyledForm } from "./styles";
+import { CadastroBtn, LoginForm, StyledForm } from "./styles";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { api } from "../../../utils/api/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginRequest } from "../../../utils/types/requests";
 
 const BoxLogin = () => {
@@ -22,8 +22,10 @@ const BoxLogin = () => {
       Email: e.currentTarget.email.value,
       Password: e.currentTarget.password.value,
     };
-    console.log(loginPayload);
+    // console.log(loginPayload);
     const userData = await api.login(loginPayload);
+    localStorage.setItem("userId", userData.user.id);
+    // console.log(`userId localStorage: ${localStorage.getItem("userId")}`)
 
     console.log(userData);
     if (!userData) {
@@ -55,6 +57,9 @@ const BoxLogin = () => {
         </div>
         <button type="submit">Login</button>
       </StyledForm>
+      <Link to={"/createuser"}>
+        <CadastroBtn>Cadastre-se</CadastroBtn>
+      </Link>
     </LoginForm>
   );
 };

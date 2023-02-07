@@ -1,26 +1,43 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 // import NavBar from "../../components/molecules/NavBar/NavBar";
 import NavBarAdm from "../../components/molecules/NavBarAdm/NavBarAdm";
 import ProductItem from "../../components/molecules/ProductItem/ProductItem";
 import { api } from "../../utils/api/api";
 // import CreateGame from "../Games/CreateGames/CreateGames";
 import { BoxHome, BoxSearch } from "./style";
+import { Game } from "../../utils/types/data";
+import { useParams } from "react-router-dom";
 
 export type game = {
-  id: string;
-  Title: string;
-  CoverImageUrl: string;
+      id: string;
+      Title: string,
+      CoverImageUrl: string,
+      Description: string,
+      Year: number,
+      ImdbScore:number,
+      TrailerYouTubeUrl: string,
+      GameplayYouTubeUrl: string,
+      genres:string[],
 };
 
 const Home = () => {
   const [games, setGames] = useState<game[]>([]);
   const [search, setSearch] = useState("");
   const [control, setControl] = useState<boolean>(false);
+  const [gameData, setGameData] = useState<Game[]>([]);
 
   async function Games() {
     const games = await api.getGames();
     setGames(games);
   }
+
+  async function getGameData(id: string) {
+    const data = await api.getGameById(id);
+    setGameData(data);
+  }
+
+  // const { id } = useParams();
+
    function handleControl() {
     setControl(!control);
    }
@@ -32,9 +49,16 @@ const Home = () => {
         )
       : games;
 
+
+
   useEffect(() => {
     Games();
-  }, [control]);
+    // getGameData("id")
+    }, [control]);    
+
+  // useEffect(() => {
+  //   getGameData()
+  // }, [])
 
   console.log("renderizou");
 
@@ -55,10 +79,12 @@ const Home = () => {
         </BoxSearch>
         <BoxHome>
           {sortedGames.map((game) => (
+            
             <ProductItem
               key={game.id}
               game={game}
               handleControl={handleControl}
+              
             />
           ))}
         </BoxHome>

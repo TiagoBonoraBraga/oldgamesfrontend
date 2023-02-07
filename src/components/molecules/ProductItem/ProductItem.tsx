@@ -1,49 +1,41 @@
-import React from "react";
-import { Link } from "react-router-dom";
+
+import {  NavLink } from "react-router-dom";
 import { api } from "../../../utils/api/api";
-import {
-  Card,
-  DeleteBtn,
-  DetalisBtn,
-  EditBtn,
-  ImageItem,
-  TitleItem,
-} from "./style";
-import { useNavigate } from "react-router-dom";
+import { Card, DeleteBtn, EditBtn, ImageItem, TitleItem } from "./style";
+// import { useNavigate } from "react-router-dom";
+import { Game } from "../../../utils/types/data";
 
 type ProductItemProps = {
-  game: any;
+  game: Game;
   handleControl: () => void;
 };
 
-const ProductItem = ({ game, handleControl }: ProductItemProps) => {
-  
-  const { CoverImageUrl, Title, id } = game;
-  
+const ProductItem = ({ game, handleControl }: ProductItemProps) => {   
 
   async function handleDeleteGame() {
     await api.deleteGame(game.id);
     handleControl();
   }
+ 
 
   return (
-    <Card>
-      <ImageItem>
-        <img src={CoverImageUrl} alt={Title} />
-      </ImageItem>
-      <TitleItem>
-        <h2>{game.Title}</h2>
-      </TitleItem>
-      <DetalisBtn>
+
+      <Card>
+        <ImageItem>
+          <img src={game.CoverImageUrl} alt={game.Title} />
+        </ImageItem>
+        <TitleItem>
+          <h2>{game.Title}</h2>
+        </TitleItem>
         {/* <button>Detalhes</button> */}
 
-        <Link to={"/updategame/" + game.id}>
-          <EditBtn>Editar</EditBtn>
-        </Link>
+        <NavLink to={"/updategame/" + game.id}>
+          {/* <EditBtn>Editar</EditBtn> */}Editar
+        </NavLink>
 
         <DeleteBtn onClick={handleDeleteGame}>Deletar</DeleteBtn>
-      </DetalisBtn>
-    </Card>
+      </Card>
+    
   );
 };
 

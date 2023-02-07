@@ -19,9 +19,12 @@ const NavBarAdm = () => {
           <li>
             <NavLink to="/homepage">HOME</NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/createUser">Cadastrar-se</NavLink>
-          </li> */}
+          <li>
+            <NavLink to="/profiles">PROFILES</NavLink>
+          </li>
+          <li>
+            <NavLink to="/createProfile"> CRIAR PROFILES</NavLink>
+          </li>
         </ul>
       </Menu>
     </Container>

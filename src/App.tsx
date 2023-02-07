@@ -3,8 +3,10 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import "./App.css";
 import CreateGames from "./pages/Games/CreateGames/CreateGames";
-import Perfil from "./pages/Perfil/Perfil";
 import UpdateGames from "./pages/Games/UpdateGames/UpdateGames";
+import Profiles from "./pages/Profiles/Profiles";
+import CreateProfile from "./pages/CreateProfile/CreateProfile";
+import CreateUsers from "./pages/Users/CreateUsers/CreateUsers";
 
 function App() {
   return (
@@ -16,11 +18,24 @@ function App() {
         <Route
           path="/updategame/:id"
           element={
-            <UpdateGames/>
+            <UpdateGames
+              game={{
+                id: "",
+                Title: "",
+                CoverImageUrl: "",
+                Description: "",
+                Year: 0,
+                ImdbScore: 0,
+                TrailerYouTubeUrl: "",
+                GameplayYouTubeUrl: "",
+                genres: [],
+              }}
+            />
           }
         />
-        <Route path="/createUser" element={<Perfil />} />
-        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/createProfile" element={<CreateProfile />} />
+        <Route path="/profiles" element={<Profiles />} />
+        <Route path="/createuser" element={<CreateUsers />} />
       </Routes>
     </BrowserRouter>
   );
