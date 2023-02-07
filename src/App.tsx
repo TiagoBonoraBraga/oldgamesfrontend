@@ -6,6 +6,7 @@ import CreateGames from "./pages/Games/CreateGames/CreateGames";
 import UpdateGames from "./pages/Games/UpdateGames/UpdateGames";
 import Profiles from "./pages/Profiles/Profiles";
 import CreateProfile from "./pages/CreateProfile/CreateProfile";
+import CreateUsers from "./pages/Users/CreateUsers/CreateUsers";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         />
         <Route path="/createProfile" element={<CreateProfile />} />
         <Route path="/profiles" element={<Profiles />} />
+        <Route path="/createuser" element={<CreateUsers />} />
       </Routes>
     </BrowserRouter>
   );

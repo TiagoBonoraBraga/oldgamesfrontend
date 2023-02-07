@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardProfile from "../../components/molecules/CardProfile/CardProfile";
+import { BoxProfiles } from "../../components/molecules/CardProfile/style";
 import NavBarAdm from "../../components/molecules/NavBarAdm/NavBarAdm";
 import { api } from "../../utils/api/api";
 import { Profile } from "../../utils/types/requests";
@@ -29,11 +30,12 @@ const Profiles = () => {
         <NavBarAdm />
       </header>
       <main>
-        <div>
+       
+        <BoxProfiles>
           {profileList.map((profile) => (
             <CardProfile profile={profile}  key={profile.id}  handleControl={handleControl} />
           ))}
-        </div>
+        </BoxProfiles>
       </main>
     </>
   );

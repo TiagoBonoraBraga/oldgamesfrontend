@@ -4,6 +4,7 @@ import {
   CreateProfileRequest,
   LoginRequest,
   UpdateGameRequest,
+  User,
 } from "../types/requests";
 
 axios.defaults.baseURL = "https://xbox-live-api.onrender.com";
@@ -96,7 +97,7 @@ export const api = {
     }
   },
 
-  //Crud Users
+  //Crud Profile
 
   createNewProfile: async (payload: CreateProfileRequest) => {
     try {
@@ -128,4 +129,18 @@ export const api = {
     }
   },
 
+  // CRUD USERS
+
+  createUser: async (payload: User) => {
+    try{
+      const response = await axios.post("/user", payload);
+      return response.data;
+    } catch (err) {
+      alert (err)
+    }
+  }
 };
+
+
+
+

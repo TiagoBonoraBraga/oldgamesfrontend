@@ -37,3 +37,10 @@ export type Profile = {
   Title: string;
   ImageURL: string;
 }
+
+export type User = {
+  Name: string;
+  Email: string;
+  Password: string;
+  CPF: string;
+}

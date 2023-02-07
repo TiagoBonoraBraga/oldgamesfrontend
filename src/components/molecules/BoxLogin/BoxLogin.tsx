@@ -57,7 +57,7 @@ const BoxLogin = () => {
         </div>
         <button type="submit">Login</button>
       </StyledForm>
-      <Link to={"/createUser"}>
+      <Link to={"/createuser"}>
         <CadastroBtn>Cadastre-se</CadastroBtn>
       </Link>
     </LoginForm>
