@@ -17,6 +17,7 @@ const ProductItem = ({ game, handleControl }: ProductItemProps) => {
     handleControl();
   }
  
+  
 
   return (
 
@@ -27,10 +28,10 @@ const ProductItem = ({ game, handleControl }: ProductItemProps) => {
         <TitleItem>
           <h2>{game.Title}</h2>
         </TitleItem>
-        {/* <button>Detalhes</button> */}
+       
 
         <NavLink to={"/updategame/" + game.id}>
-          {/* <EditBtn>Editar</EditBtn> */}Editar
+        Editar
         </NavLink>
 
         <DeleteBtn onClick={handleDeleteGame}>Deletar</DeleteBtn>

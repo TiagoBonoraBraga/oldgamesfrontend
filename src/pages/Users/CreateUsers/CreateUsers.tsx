@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, InputProps } from "../../../components/atoms/form/form";
-import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
+import NavBar from "../../../components/molecules/NavBar/NavBar";
 import { api } from "../../../utils/api/api";
 
 const CreateUsers = () => {
@@ -39,10 +39,10 @@ const CreateUsers = () => {
       Password: e.currentTarget.Password.value,
       CPF: e.currentTarget.CPF.value
     }
-    // console.log(dataPayload)
+    
 
     const data = await api.createUser(dataPayload);
-    // console.log(data)
+    
     if(!data){
       setError(true);
       return;
@@ -54,7 +54,7 @@ const CreateUsers = () => {
   return (
     <>
       <header>
-        <NavBarAdm />
+        <NavBar/>
       </header>
       <main>
         <Form
@@ -62,6 +62,14 @@ const CreateUsers = () => {
           onSubmit={handleSubmit}
           title={"Create User"}
         ></Form>
+
+        <div>
+        <h2>Usuário ADM para Logar</h2>
+        <p>
+          Email: marcus.silva@gmail.com
+          Senha: Abcd@1234
+        </p>
+        </div>
       </main>
     </>
   );

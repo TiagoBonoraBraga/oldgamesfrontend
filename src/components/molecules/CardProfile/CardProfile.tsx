@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { api } from "../../../utils/api/api";
 import { Profile } from "../../../utils/types/requests";
 import { CardProfiles, ButtonProfile } from "./style";
@@ -8,10 +9,14 @@ type ProfileProps = {
   handleControl: () => void;
 };
 const CardProfile = ({ profile, handleControl }: ProfileProps) => {
+  const navigate = useNavigate()
+  
   async function handleDeleteProfile() {
     await api.deleteProfile(profile.id);
     handleControl();
   }
+
+ 
 
   return (
     <CardProfiles>
@@ -21,7 +26,7 @@ const CardProfile = ({ profile, handleControl }: ProfileProps) => {
       <h2>{profile.Title}</h2>
       <ButtonProfile>
         <button onClick={handleDeleteProfile}>Deletar</button>
-        <button>Editar</button>
+        <button onClick={() => {navigate('/updateprofile/' + profile.id)}}>Editar</button>
       </ButtonProfile>
     </CardProfiles>
   );

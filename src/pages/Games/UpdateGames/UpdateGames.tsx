@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Form, InputProps } from "../../../components/atoms/form/form";
 import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
-
 import { api } from "../../../utils/api/api";
 // import { UpdateGameRequest } from "../../../utils/types/requests";
 import { useNavigate, useParams } from "react-router-dom";
@@ -9,6 +8,7 @@ import { Game } from "../../../utils/types/data";
 
 export interface UpdateGameFormProps {
   game:  Game ;
+  
 }
 
 const UpdateGames = ({game}: UpdateGameFormProps) => {
@@ -16,6 +16,7 @@ const UpdateGames = ({game}: UpdateGameFormProps) => {
   const navigate = useNavigate();
 
   const {id} = useParams();
+ 
 
   const FormInputs: InputProps[] = [
     {
@@ -67,9 +68,10 @@ const UpdateGames = ({game}: UpdateGameFormProps) => {
       defaultValue: game.CoverImageUrl,
     },
   ];
-console.log(FormInputs)
+console.log(game.Title)
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    
     const dataPayload = {
       
       Title: e.currentTarget.Title.value,
@@ -81,12 +83,11 @@ console.log(FormInputs)
       GameplayYouTubeUrl: e.currentTarget.GameplayYouTubeUrl.value,
       genres: [e.currentTarget.genres.value],
     };
-
-    console.log({ ...dataPayload, id });
+console.log(dataPayload)
+   
 
     const gameData = await api.updateGame({ ...dataPayload, id });
-    console.log(gameData)
-
+    
     if (!gameData) {
       setError(true);
       return;

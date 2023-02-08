@@ -32,6 +32,12 @@ export type CreateProfileRequest = {
   
 }
 
+export type UpdateProfileRequest = {
+  id: string;
+  Title: string;
+  ImageURL: string;
+}
+
 export type Profile = {
   id: string;
   Title: string;

@@ -60,7 +60,7 @@ const Home = () => {
   //   getGameData()
   // }, [])
 
-  console.log("renderizou");
+ 
 
   return (
     <>

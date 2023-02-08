@@ -4,6 +4,7 @@ import {
   CreateProfileRequest,
   LoginRequest,
   UpdateGameRequest,
+  UpdateProfileRequest,
   User,
 } from "../types/requests";
 
@@ -40,7 +41,7 @@ export const api = {
         Email,
         Password,
       });
-      // console.log(response);
+    
       localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (err) {
@@ -101,9 +102,9 @@ export const api = {
 
   createNewProfile: async (payload: CreateProfileRequest) => {
     try {
-      // console.log(payload)
+      
       const response = await axios.post("/profile", payload);
-      // console.log(`api: ${response}`)
+      
       return response.data;
     } catch (err) {
       alert(err);
@@ -111,9 +112,18 @@ export const api = {
   },
   getProfile: async (id: string | null) => {
     try {
-      // console.log(id)
+     
       const response = await axios.get("/profile/" + id);
-      // console.log(response)
+      
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
+  updateProfile: async (payload: UpdateProfileRequest) => {
+    try {
+      const response = await axios.patch("/profile/" + payload.id, {Title: payload.Title, ImageURL: payload.ImageURL});
       return response.data;
     } catch (err) {
       alert(err);

@@ -11,7 +11,7 @@ const Profiles = () => {
 
   async function AddProfiles() {
     const userId: string | null = localStorage.getItem('userId')
-    // console.log(`userId: ${userId}`)
+  
     const profiles = await api.getProfile(userId);
     setProfileList(profiles);
   }

@@ -22,12 +22,12 @@ const BoxLogin = () => {
       Email: e.currentTarget.email.value,
       Password: e.currentTarget.password.value,
     };
-    // console.log(loginPayload);
+   
     const userData = await api.login(loginPayload);
     localStorage.setItem("userId", userData.user.id);
-    // console.log(`userId localStorage: ${localStorage.getItem("userId")}`)
+   
 
-    console.log(userData);
+   
     if (!userData) {
       setError(true);
       return;

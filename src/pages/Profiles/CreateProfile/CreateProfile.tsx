@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import NavBarAdm from "../../components/molecules/NavBarAdm/NavBarAdm";
-import { Form, InputProps } from "../../components/atoms/form/form";
-import { api } from "../../utils/api/api";
-import { CreateProfileRequest } from "../../utils/types/requests";
+import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
+import { Form, InputProps } from "../../../components/atoms/form/form";
+import { api } from "../../../utils/api/api";
+import { CreateProfileRequest } from "../../../utils/types/requests";
 import { useNavigate } from "react-router-dom";
 
 const CreateProfileForm = () => {
-  const UserFormInputs: InputProps[] = [
+  const ProfileFormInputs: InputProps[] = [
     {
       name: "Title",
       type: "text",
@@ -26,7 +26,7 @@ const CreateProfileForm = () => {
       Title: e.currentTarget.Title.value,
       ImageURL: e.currentTarget.ImageURL.value,
     };
-    // console.log(userPayload);
+   
 
     const response = await api.createNewProfile(userPayload);
 
@@ -44,7 +44,7 @@ const CreateProfileForm = () => {
       </header>
       <main>
         <Form
-          inputs={UserFormInputs}
+          inputs={ProfileFormInputs}
           title={"Cadastre seu Profile"}
           onSubmit={handleSubmit}
         />

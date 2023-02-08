@@ -65,7 +65,7 @@ const CreateGame = () => {
       GameplayYouTubeUrl: e.currentTarget.GameplayYouTubeUrl.value,
       genres: [e.currentTarget.genres.value],
     };
-    console.log(dataPayload);
+  
     const gameData = await api.createNewGame(dataPayload);
 
     if (!gameData) {
