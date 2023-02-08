@@ -128,6 +128,15 @@ export const api = {
     }
   },
 
+  getAuth: async () => {
+    try{
+      const response = await axios.get("/auth" )
+      return response.data
+    } catch (err) {
+      alert(err)
+    }
+  },
+
   updateProfile: async (payload: UpdateProfileRequest) => {
     try {
       const response = await axios.patch("/profile/" + payload.id, {

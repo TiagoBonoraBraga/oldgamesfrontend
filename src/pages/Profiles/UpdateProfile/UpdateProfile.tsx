@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
 import { api } from "../../../utils/api/api";
 
 const UpdateProfile = () => {
-  const {id} = useParams();
-  const navigate = useNavigate()
+  const [profile, setProfile] = useState<string>();
+
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  async function getProfileById() {
+    const user = await api.getAuth();
+    const profiles = await api.getProfile(user.id ?? "");
+    const selectedProfile = profiles.find((profile: any) => profile.id === id);
+    setProfile(selectedProfile);
+    console.log(selectedProfile);
+  }
+
+  useEffect(() => {
+    getProfileById();
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -14,13 +28,13 @@ const UpdateProfile = () => {
       id: id ?? "",
       Title: e.currentTarget.Title.value,
       ImageURL: e.currentTarget.ImageURL.value,
-    }
+    };
 
     // console.log(updatePayload)
 
     const updateData = await api.updateProfile(updatePayload);
 
-    navigate("/profiles")
+    navigate("/profiles");
   }
 
   return (
@@ -32,8 +46,18 @@ const UpdateProfile = () => {
         <div className="update_container">
           <form onSubmit={handleSubmit}>
             <h2>Update Profile</h2>
-            <input type="text" name="Title" placeholder="Digite seu Nome" />
-            <input type="text" name="ImageURL" placeholder="Link da imagem" />
+            <input
+              type="text"
+              name="Title"
+              placeholder="Digite seu Nome"
+              defaultValue={profile?.Title}
+            />
+            <input
+              type="text"
+              name="ImageURL"
+              placeholder="Link da imagem"
+              defaultValue={profile?.ImageURL}
+            />
             <button type="submit">Update Profile</button>
           </form>
         </div>
