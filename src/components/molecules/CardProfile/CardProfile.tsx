@@ -10,7 +10,7 @@ type ProfileProps = {
 };
 const CardProfile = ({ profile, handleControl }: ProfileProps) => {
   const navigate = useNavigate()
-  
+
   async function handleDeleteProfile() {
     await api.deleteProfile(profile.id);
     handleControl();

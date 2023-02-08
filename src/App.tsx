@@ -18,8 +18,8 @@ function App() {
         <Route path="/profiles" element={<Profiles />} />
         <Route path="/creategame" element={<CreateGames />} />
         <Route path="/updategame/:id" element={<UpdateGames />} />
-        <Route path="/createProfile" element={<CreateProfile />} />
-        <Route path="/updateProfile/:id" element={<UpdateProfile  />} />
+        <Route path="/createprofile" element={<CreateProfile />} />
+        <Route path="/updateprofile/:id" element={<UpdateProfile  />} />
         <Route path="/createuser" element={<CreateUsers />} />
       </Routes>
     </BrowserRouter>

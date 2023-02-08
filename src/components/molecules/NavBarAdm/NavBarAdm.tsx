@@ -23,7 +23,7 @@ const NavBarAdm = () => {
             <NavLink to="/profiles">PROFILES</NavLink>
           </li>
           <li>
-            <NavLink to="/createProfile"> CRIAR PROFILES</NavLink>
+            <NavLink to="/createprofile"> CRIAR PROFILES</NavLink>
           </li>
         </ul>
       </Menu>

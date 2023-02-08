@@ -21,6 +21,7 @@ const CreateProfileForm = () => {
   const [error, setError] = useState<boolean>(false);
   const navigate = useNavigate();
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    
     e.preventDefault();
     const userPayload: CreateProfileRequest = {
       Title: e.currentTarget.Title.value,
