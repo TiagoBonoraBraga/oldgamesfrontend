@@ -1,43 +1,26 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Form, InputProps } from "../../../components/atoms/form/form";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
 import { api } from "../../../utils/api/api";
-import { Profile } from "../../../utils/types/requests";
 
-export interface UpdateProfileFormProps {
-  profile: Profile;
-}
-const UpdateProfile = ({ profile }: UpdateProfileFormProps) => {
-  const { id } = useParams();
+const UpdateProfile = () => {
+  const {id} = useParams();
   const navigate = useNavigate()
-
-  const ProfileFormInputs: InputProps[] = [
-    {
-      name: "Title",
-      type: "text",
-      placeholder: "Nome do usuário",
-      defaultValue: profile.Title,
-    },
-    {
-      name: "ImageURL",
-      type: "text",
-      placeholder: "Link da imagem",
-      defaultValue: profile.ImageURL,
-    },
-  ];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const editPayload = {
+
+    const updatePayload = {
       id: id ?? "",
       Title: e.currentTarget.Title.value,
-      ImageURL: e.currentTarget.ImageURL.value
-  };
- 
-  const userData = await api.updateProfile(editPayload)
+      ImageURL: e.currentTarget.ImageURL.value,
+    }
 
-  navigate('/profiles')
+    // console.log(updatePayload)
+
+    const updateData = await api.updateProfile(updatePayload);
+
+    navigate("/profiles")
   }
 
   return (
@@ -46,11 +29,14 @@ const UpdateProfile = ({ profile }: UpdateProfileFormProps) => {
         <NavBarAdm />
       </header>
       <main>
-        <Form
-          inputs={ProfileFormInputs}
-          onSubmit={handleSubmit}
-          title={"Update Profile"}
-        />
+        <div className="update_container">
+          <form onSubmit={handleSubmit}>
+            <h2>Update Profile</h2>
+            <input type="text" name="Title" placeholder="Digite seu Nome" />
+            <input type="text" name="ImageURL" placeholder="Link da imagem" />
+            <button type="submit">Update Profile</button>
+          </form>
+        </div>
       </main>
     </>
   );
