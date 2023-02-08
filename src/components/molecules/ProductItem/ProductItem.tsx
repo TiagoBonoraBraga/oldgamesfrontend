@@ -1,5 +1,5 @@
 
-import {  NavLink } from "react-router-dom";
+import {  NavLink, useNavigate } from "react-router-dom";
 import { api } from "../../../utils/api/api";
 import { Card, DeleteBtn, EditBtn, ImageItem, TitleItem } from "./style";
 // import { useNavigate } from "react-router-dom";
@@ -11,6 +11,7 @@ type ProductItemProps = {
 };
 
 const ProductItem = ({ game, handleControl }: ProductItemProps) => {   
+  const navigate = useNavigate()
 
   async function handleDeleteGame() {
     await api.deleteGame(game.id);
@@ -30,10 +31,7 @@ const ProductItem = ({ game, handleControl }: ProductItemProps) => {
         </TitleItem>
        
 
-        <NavLink to={"/updategame/" + game.id}>
-        Editar
-        </NavLink>
-
+        <button onClick={() => {navigate('/updategame/' + game.id)}}>Editar</button>
         <DeleteBtn onClick={handleDeleteGame}>Deletar</DeleteBtn>
       </Card>
     

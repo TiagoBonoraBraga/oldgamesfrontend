@@ -41,7 +41,7 @@ export const api = {
         Email,
         Password,
       });
-    
+
       localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (err) {
@@ -82,7 +82,16 @@ export const api = {
 
   updateGame: async (payload: UpdateGameRequest) => {
     try {
-      const response = await axios.patch("/game/" + payload.id, payload);
+      const response = await axios.patch("/game/" + payload.id, {
+        Title: payload.Title,
+        CoverImageUrl: payload.CoverImageUrl,
+        Description: payload.Description,
+        Year: payload.Year,
+        ImdbScore: payload.ImdbScore,
+        TrailerYouTubeUrl: payload.TrailerYouTubeUrl,
+        GameplayYouTubeUrl: payload.GameplayYouTubeUrl,
+        genres: payload.genres,
+      });
       return response.data;
     } catch (err) {
       alert(err);
@@ -102,9 +111,8 @@ export const api = {
 
   createNewProfile: async (payload: CreateProfileRequest) => {
     try {
-      
       const response = await axios.post("/profile", payload);
-      
+
       return response.data;
     } catch (err) {
       alert(err);
@@ -112,9 +120,8 @@ export const api = {
   },
   getProfile: async (id: string | null) => {
     try {
-     
       const response = await axios.get("/profile/" + id);
-      
+
       return response.data;
     } catch (err) {
       alert(err);
@@ -123,7 +130,10 @@ export const api = {
 
   updateProfile: async (payload: UpdateProfileRequest) => {
     try {
-      const response = await axios.patch("/profile/" + payload.id, {Title: payload.Title, ImageURL: payload.ImageURL});
+      const response = await axios.patch("/profile/" + payload.id, {
+        Title: payload.Title,
+        ImageURL: payload.ImageURL,
+      });
       return response.data;
     } catch (err) {
       alert(err);
@@ -142,15 +152,11 @@ export const api = {
   // CRUD USERS
 
   createUser: async (payload: User) => {
-    try{
+    try {
       const response = await axios.post("/user", payload);
       return response.data;
     } catch (err) {
-      alert (err)
+      alert(err);
     }
-  }
+  },
 };
-
-
-
-
