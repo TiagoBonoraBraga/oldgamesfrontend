@@ -31,7 +31,7 @@ const ProductItem = ({ game, handleControl }: ProductItemProps) => {
         </TitleItem>
        
 
-        <button onClick={() => {navigate('/updategame/' + game.id)}}>Editar</button>
+        <EditBtn onClick={() => {navigate('/updategame/' + game.id)}}>Editar</EditBtn>
         <DeleteBtn onClick={handleDeleteGame}>Deletar</DeleteBtn>
       </Card>
     

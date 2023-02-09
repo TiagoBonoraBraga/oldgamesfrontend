@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { api } from "../../../utils/api/api";
 import { Profile } from "../../../utils/types/requests";
-import { CardProfiles, ButtonProfile } from "./style";
+import { CardProfiles, ButtonProfile, EditBtn, DeleteBtn} from "./style";
 
 type ProfileProps = {
   profile: Profile;
@@ -25,8 +25,8 @@ const CardProfile = ({ profile, handleControl }: ProfileProps) => {
       </div>
       <h2>{profile.Title}</h2>
       <ButtonProfile>
-        <button onClick={handleDeleteProfile}>Deletar</button>
-        <button onClick={() => {navigate('/updateprofile/' + profile.id)}}>Editar</button>
+        <EditBtn onClick={() => {navigate('/updateprofile/' + profile.id)}}>Editar</EditBtn>
+        <DeleteBtn onClick={handleDeleteProfile}>Deletar</DeleteBtn>
       </ButtonProfile>
     </CardProfiles>
   );
