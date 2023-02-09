@@ -11,9 +11,6 @@ const NavBarAdm = () => {
       <Menu>
         <ul>
           <li>
-            <NavLink to="/creategame">CRIAR NOVOS GAMES</NavLink>
-          </li>
-          <li>
             <NavLink to="/homepage">HOME</NavLink>
           </li>
           <li>
@@ -21,6 +18,9 @@ const NavBarAdm = () => {
           </li>
           <li>
             <NavLink to="/createprofile"> CRIAR PROFILES</NavLink>
+          </li>
+          <li>
+            <NavLink to="/creategame">CRIAR NOVOS GAMES</NavLink>
           </li>
         </ul>
       </Menu>

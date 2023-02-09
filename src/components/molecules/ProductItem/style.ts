@@ -8,8 +8,9 @@ export const Card = styled.div`
   height: 500px;
   width: 250px;
   border-radius: 20px;
-  background-color: #cbd3df;
-  color: black;
+  /* background-color: #cbd3df; */
+  border: 1px solid white;
+  color: white;
 `;
 
 export const ImageItem = styled.div`
@@ -17,6 +18,7 @@ export const ImageItem = styled.div`
   img {
     width: 200px;
     min-height: 300px;
+    border-radius: 5px;
   }
 `;
 
