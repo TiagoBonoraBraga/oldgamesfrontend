@@ -1,7 +1,7 @@
 
 import {  NavLink, useNavigate } from "react-router-dom";
 import { api } from "../../../utils/api/api";
-import { Card, DeleteBtn, EditBtn, ImageItem, TitleItem } from "./style";
+import { Card, DeleteBtn, DetalisBtn, EditBtn, ImageItem, TitleItem } from "./style";
 // import { useNavigate } from "react-router-dom";
 import { Game } from "../../../utils/types/data";
 
@@ -30,7 +30,7 @@ const ProductItem = ({ game, handleControl }: ProductItemProps) => {
           <h2>{game.Title}</h2>
         </TitleItem>
        
-
+        <DetalisBtn onClick={() => {navigate('/updategame/' + game.id)}}>Detalhes</DetalisBtn>
         <EditBtn onClick={() => {navigate('/updategame/' + game.id)}}>Editar</EditBtn>
         <DeleteBtn onClick={handleDeleteGame}>Deletar</DeleteBtn>
       </Card>

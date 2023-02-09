@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #eaecee;
+  background-color: #d3d3d3;
 `;
 
 export const LogoNavBar = styled.div`
@@ -28,20 +29,26 @@ export const Menu = styled.div`
 
     li {
       margin: 1rem 1.5rem;
-      /* background-color: rgba(6, 102, 102, 0.408); */
+      background-color: #a7a7a7;
       border-radius: 10px;
       padding: 0.5rem 1rem;
-
-      font-weight: 500;
+     
+      font-weight: 700;
       transition: all 0.5s;
 
       &:hover {
-        /* background-color: aquamarine; */
+        background-color: #3e4144;
         padding: 0.7rem 1.5rem;
+        color: white;
       }
       a {
         text-decoration: none;
+        color: black;
+        &:hover {
+          color:white;
+        }
       }
+      
     }
   }
 `;

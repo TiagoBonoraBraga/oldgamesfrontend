@@ -8,14 +8,6 @@ const NavBar = () => {
       <LogoNavBar>
         <NavLink to="/">Old Games</NavLink>
       </LogoNavBar>
-      <Menu>
-        <ul>
-          <li>
-            <NavLink to="/">Entrar</NavLink>
-          </li>
-          
-        </ul>
-      </Menu>
     </Container>
   );
 };

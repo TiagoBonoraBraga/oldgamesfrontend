@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BoxProfiles = styled.div`
-  display: flex;
+  display: flex; 
   margin-top: 1rem;
   flex-wrap: wrap;
   align-items: center;
@@ -13,9 +13,13 @@ export const CardProfiles = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 2rem;
 
   img{
-    max-width: 200px;
+    max-width: 150px;
     border-radius:5px;
     margin-top: 2rem;
   }
@@ -28,7 +32,7 @@ export const CardProfiles = styled.div`
 export const ButtonProfile = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1rem;  
+    gap: 3px;  
 
 `;
 
@@ -45,7 +49,7 @@ export const EditBtn = styled.button`
   gap: 2px;
   transition: all 0.7s;
   &:hover {
-    background-color: aquamarine;
+    background-color: #3e4144;
     color: #ffffff;
     padding: 0.7rem 1.5rem;    
   }

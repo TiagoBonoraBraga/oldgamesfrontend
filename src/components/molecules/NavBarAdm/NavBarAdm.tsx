@@ -10,9 +10,6 @@ const NavBarAdm = () => {
       </LogoNavBar>
       <Menu>
         <ul>
-          {/* <li>
-            <NavLink to="/perfil">Perfil</NavLink>
-          </li> */}
           <li>
             <NavLink to="/creategame">CRIAR NOVOS GAMES</NavLink>
           </li>
