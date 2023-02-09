@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
 import { api } from "../../../utils/api/api";
 import { useNavigate, useParams } from "react-router-dom";
+import { FormContainer } from "./style";
 
 
 const UpdateGames = () => {
   const [error, setError] = useState<boolean>(false);
+  const [game, setGame] = useState<string>();
   const navigate = useNavigate();
+  
 
   const { id } = useParams();
+
+  async function getGameById() {
+    const game = await api.getGameById(id ?? "");
+     setGame(game);
+    console.log(game);
+  }
+
+  useEffect(() => {
+    getGameById();
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -28,10 +41,6 @@ const UpdateGames = () => {
 
     const gameData = await api.updateGame(dataPayload);
 
-    // if (!gameData) {
-    //   setError(true);
-    //   return;
-    // }
     navigate("/homepage");
   }
 
@@ -41,20 +50,60 @@ const UpdateGames = () => {
         <NavBarAdm />
       </header>
       <main>
-        <div className="updategame_container">
+        <FormContainer>
+          <h2>Update Game</h2>
           <form onSubmit={handleSubmit}>
-            <h2>Update Game</h2>
-            <input type="text" name="Title" placeholder="Digite o nome do game"/>
-            <input type="text" name="Description" placeholder="Digite a descrição do game"/>
-            <input type="text" name="Year" placeholder="Digite o ano de lançamento do game"/>
-            <input type="text" name="ImdbScore" placeholder="Digite o Score do game (0-5)pontos"/>
-            <input type="text" name="TrailerYouTubeUrl" placeholder="Link trailer do Youtube"/>
-            <input type="text" name="GameplayYouTubeUrl" placeholder="Link do GamePlay"/>
-            <input type="text" name="CoverImageUrl" placeholder="Link da image do game"/>
-            <input type="text" name="genres" placeholder="Gênero"/>
+            <input
+              type="text"
+              name="Title"
+              placeholder="Digite o nome do game"
+              defaultValue={game?.Title}
+            />
+            <input
+              type="text"
+              name="Description"
+              placeholder="Digite a descrição do game"
+              defaultValue={game?.Description}
+            />
+            <input
+              type="text"
+              name="Year"
+              placeholder="Digite o ano de lançamento do game"
+              defaultValue={game?.Year}
+            />
+            <input
+              type="text"
+              name="ImdbScore"
+              placeholder="Digite o Score do game (0-5)pontos"
+              defaultValue={game?.ImdbScore}
+            />
+            <input
+              type="text"
+              name="TrailerYouTubeUrl"
+              placeholder="Link trailer do Youtube"
+              defaultValue={game?.TrailerYouTubeUrl}
+            />
+            <input
+              type="text"
+              name="GameplayYouTubeUrl"
+              placeholder="Link do GamePlay"
+              defaultValue={game?.GameplayYouTubeUrl}
+            />
+            <input
+              type="text"
+              name="CoverImageUrl"
+              placeholder="Link da image do game"
+              defaultValue={game?.CoverImageUrl}
+            />
+            <input
+              type="text"
+              name="genres"
+              placeholder="Gênero"
+              defaultValue={game?.genres}
+            />
             <button type="submit">Update Game</button>
           </form>
-        </div>
+        </FormContainer>
       </main>
     </>
   );

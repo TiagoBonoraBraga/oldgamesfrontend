@@ -9,6 +9,7 @@ const UpdateProfile = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  //fazer pela rota auth o getbyid fazendo o find pois a api retorna uma lista por isso do find
   async function getProfileById() {
     const user = await api.getAuth();
     const profiles = await api.getProfile(user.id ?? "");
