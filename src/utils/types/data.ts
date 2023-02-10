@@ -8,4 +8,5 @@ export type Game = {
   TrailerYouTubeUrl: string;
   GameplayYouTubeUrl: string;
   genres: string[];
+ 
 };

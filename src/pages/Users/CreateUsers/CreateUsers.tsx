@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Form, InputProps } from "../../../components/atoms/form/form";
 import NavBar from "../../../components/molecules/NavBar/NavBar";
 import { api } from "../../../utils/api/api";
-
+import { BoxAdm } from "./style";
 const CreateUsers = () => {
   const [error, setError] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -31,22 +31,21 @@ const CreateUsers = () => {
     },
   ];
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>){
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const dataPayload = {
       Name: e.currentTarget.Name.value,
       Email: e.currentTarget.Email.value,
       Password: e.currentTarget.Password.value,
-      CPF: e.currentTarget.CPF.value
-    }
-    
+      CPF: e.currentTarget.CPF.value,
+    };
 
     const data = await api.createUser(dataPayload);
-    
-    if(!data){
+
+    if (!data) {
       setError(true);
       return;
-    } else{
+    } else {
       navigate("/");
     }
   }
@@ -54,7 +53,7 @@ const CreateUsers = () => {
   return (
     <>
       <header>
-        <NavBar/>
+        <NavBar />
       </header>
       <main>
         <Form
@@ -63,13 +62,11 @@ const CreateUsers = () => {
           title={"Create User"}
         ></Form>
 
-        <div>
-        <h2>Usuário ADM para Logar</h2>
-        <p>
-          Email: marcus.silva@gmail.com
-          Senha: Abcd@1234
-        </p>
-        </div>
+        <BoxAdm>
+          <h2>Usuário ADM </h2>
+          <span>Email: marcus.silva@gmail.com</span>
+          <span>Senha: Abcd@1234</span>
+        </BoxAdm>
       </main>
     </>
   );

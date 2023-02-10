@@ -4,23 +4,10 @@ import { api } from "../../utils/api/api";
 import { Game } from "../../utils/types/data";
 import { useParams } from "react-router-dom";
 
-type DetailGameProps = {
-  game: Game;
-};
 
-// export interface Game {
-//   id: string;
-//   Title: string;
-//   CoverImageUrl: string;
-//   Description: string;
-//   Year: number;
-//   ImdbScore: number;
-//   TrailerYouTubeUrl: string;
-//   GameplayYouTubeUrl: string;
-//   genres: string;
-// }
-const Detail = ({ game }: DetailGameProps) => {
-  const [gameData, setGameData] = useState<Game>();
+
+const Detail = () => {
+  const [gameData, setGameData] = useState<Game>({} as Game);
   
 
   const { id } = useParams();
@@ -41,12 +28,12 @@ const Detail = ({ game }: DetailGameProps) => {
       </header>
       <main>
         <div className="BoxDetails">
-          <h2>{game.Title}</h2>
-          <img src={game.CoverImageUrl} alt="imagem" />
+          <h2>{gameData.Title}</h2>
+          <img src={gameData.CoverImageUrl} alt="imagem" />
           <div className="gameDescription">
-            <p>{game.Description}</p>
-            <span>{game.Year}</span>
-            <span>{game.ImdbScore}</span>
+            <p>{gameData.Description}</p>
+            <span>{gameData.Year}</span>
+            <span>{gameData.ImdbScore}</span>
           </div>
           <div className="gameVideos">
             <div className="youtubeVideo">
@@ -54,7 +41,7 @@ const Detail = ({ game }: DetailGameProps) => {
               <iframe
                 width="560"
                 height="315"
-                src={game.TrailerYouTubeUrl}
+                src={gameData.TrailerYouTubeUrl}
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -65,7 +52,7 @@ const Detail = ({ game }: DetailGameProps) => {
               <iframe
                 width="560"
                 height="315"
-                src={game.GameplayYouTubeUrl}
+                src={gameData.GameplayYouTubeUrl}
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

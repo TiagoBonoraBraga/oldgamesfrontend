@@ -22,7 +22,7 @@ function App() {
         <Route path="/createprofile" element={<CreateProfile />} />
         <Route path="/updateprofile/:id" element={<UpdateProfile  />} />
         <Route path="/createuser" element={<CreateUsers />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );

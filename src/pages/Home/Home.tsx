@@ -18,6 +18,7 @@ export type game = {
       TrailerYouTubeUrl: string,
       GameplayYouTubeUrl: string,
       genres:string[],
+     
 };
 
 const Home = () => {
