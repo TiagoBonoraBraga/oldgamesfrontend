@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
-import "./App.css";
+// import "./App.css";
 import CreateGames from "./pages/Games/CreateGames/CreateGames";
 import UpdateGames from "./pages/Games/UpdateGames/UpdateGames";
 import Profiles from "./pages/Profiles/Profiles";
 import CreateProfile from "./pages/Profiles/CreateProfile/CreateProfile";
 import CreateUsers from "./pages/Users/CreateUsers/CreateUsers";
 import UpdateProfile from "./pages/Profiles/UpdateProfile/UpdateProfile";
-import Details from './pages/Details/Detail'
+import Detail from "./pages/Details/Detail";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <Route path="/createprofile" element={<CreateProfile />} />
         <Route path="/updateprofile/:id" element={<UpdateProfile  />} />
         <Route path="/createuser" element={<CreateUsers />} />
-        <Route path="/details" element={<Details />} />
+        <Route path="/detail" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );

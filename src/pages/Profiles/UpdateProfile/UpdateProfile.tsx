@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
 import { api } from "../../../utils/api/api";
+import { FormContainerProfile } from "./style";
 
 const UpdateProfile = () => {
   const [profile, setProfile] = useState<string>();
@@ -44,7 +45,7 @@ const UpdateProfile = () => {
         <NavBarAdm />
       </header>
       <main>
-        <div className="update_container">
+        <FormContainerProfile>
           <form onSubmit={handleSubmit}>
             <h2>Update Profile</h2>
             <input
@@ -61,7 +62,7 @@ const UpdateProfile = () => {
             />
             <button type="submit">Update Profile</button>
           </form>
-        </div>
+        </FormContainerProfile>
       </main>
     </>
   );
