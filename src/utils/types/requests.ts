@@ -29,24 +29,23 @@ export type UpdateGameRequest = {
 export type CreateProfileRequest = {
   Title: string;
   ImageURL: string;
-  
-}
+};
 
 export type UpdateProfileRequest = {
   id: string;
   Title: string;
   ImageURL: string;
-}
+};
 
 export type Profile = {
   id: string;
   Title: string;
   ImageURL: string;
-}
+};
 
 export type User = {
   Name: string;
   Email: string;
   Password: string;
   CPF: string;
-}
+};

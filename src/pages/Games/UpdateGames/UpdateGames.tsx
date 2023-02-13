@@ -4,18 +4,16 @@ import { api } from "../../../utils/api/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { FormContainer } from "./style";
 
-
 const UpdateGames = () => {
   const [error, setError] = useState<boolean>(false);
   const [game, setGame] = useState<string>();
   const navigate = useNavigate();
-  
 
   const { id } = useParams();
 
   async function getGameById() {
     const game = await api.getGameById(id ?? "");
-     setGame(game);
+    setGame(game);
     console.log(game);
   }
 

@@ -5,7 +5,6 @@ import { api } from "../../../utils/api/api";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginRequest } from "../../../utils/types/requests";
 
-
 const BoxLogin = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
@@ -23,12 +22,10 @@ const BoxLogin = () => {
       Email: e.currentTarget.email.value,
       Password: e.currentTarget.password.value,
     };
-   
+
     const userData = await api.login(loginPayload);
     localStorage.setItem("userId", userData.user.id);
-   
 
-   
     if (!userData) {
       setError(true);
       return;
@@ -61,7 +58,6 @@ const BoxLogin = () => {
       <Link to={"/createuser"}>
         <CadastroBtn>Cadastre-se</CadastroBtn>
       </Link>
-    
     </LoginForm>
   );
 };

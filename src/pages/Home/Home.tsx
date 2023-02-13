@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 // import NavBar from "../../components/molecules/NavBar/NavBar";
 import NavBarAdm from "../../components/molecules/NavBarAdm/NavBarAdm";
 import ProductItem from "../../components/molecules/ProductItem/ProductItem";
@@ -9,16 +9,15 @@ import { Game } from "../../utils/types/data";
 import { useParams } from "react-router-dom";
 
 export type game = {
-      id: string;
-      Title: string,
-      CoverImageUrl: string,
-      Description: string,
-      Year: number,
-      ImdbScore:number,
-      TrailerYouTubeUrl: string,
-      GameplayYouTubeUrl: string,
-      genres:string[],
-     
+  id: string;
+  Title: string;
+  CoverImageUrl: string;
+  Description: string;
+  Year: number;
+  ImdbScore: number;
+  TrailerYouTubeUrl: string;
+  GameplayYouTubeUrl: string;
+  genres: string[];
 };
 
 const Home = () => {
@@ -39,9 +38,9 @@ const Home = () => {
 
   // const { id } = useParams();
 
-   function handleControl() {
+  function handleControl() {
     setControl(!control);
-   }
+  }
 
   const sortedGames =
     search.length > 0
@@ -50,18 +49,14 @@ const Home = () => {
         )
       : games;
 
-
-
   useEffect(() => {
     Games();
     // getGameData("id")
-    }, [control]);    
+  }, [control]);
 
   // useEffect(() => {
   //   getGameData()
   // }, [])
-
- 
 
   return (
     <>
@@ -80,12 +75,10 @@ const Home = () => {
         </BoxSearch>
         <BoxHome>
           {sortedGames.map((game) => (
-            
             <ProductItem
               key={game.id}
               game={game}
               handleControl={handleControl}
-              
             />
           ))}
         </BoxHome>

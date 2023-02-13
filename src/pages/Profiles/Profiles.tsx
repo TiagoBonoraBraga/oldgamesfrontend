@@ -10,19 +10,19 @@ const Profiles = () => {
   const [control, setControl] = useState<boolean>(false);
 
   async function AddProfiles() {
-    const userId: string | null = localStorage.getItem('userId')
-  
+    const userId: string | null = localStorage.getItem("userId");
+
     const profiles = await api.getProfile(userId);
     setProfileList(profiles);
   }
 
   function handleControl() {
     setControl(!control);
-   }
+  }
 
   useEffect(() => {
     AddProfiles();
-  },[control]);
+  }, [control]);
 
   return (
     <>
@@ -30,10 +30,13 @@ const Profiles = () => {
         <NavBarAdm />
       </header>
       <main>
-       
         <BoxProfiles>
           {profileList.map((profile) => (
-            <CardProfile profile={profile}  key={profile.id}  handleControl={handleControl} />
+            <CardProfile
+              profile={profile}
+              key={profile.id}
+              handleControl={handleControl}
+            />
           ))}
         </BoxProfiles>
       </main>

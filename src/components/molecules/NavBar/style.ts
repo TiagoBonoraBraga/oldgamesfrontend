@@ -32,7 +32,7 @@ export const Menu = styled.div`
       background-color: #a7a7a7;
       border-radius: 10px;
       padding: 0.5rem 1rem;
-     
+
       font-weight: 700;
       transition: all 0.5s;
 
@@ -45,10 +45,9 @@ export const Menu = styled.div`
         text-decoration: none;
         color: black;
         &:hover {
-          color:white;
+          color: white;
         }
       }
-      
     }
   }
 `;

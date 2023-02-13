@@ -76,16 +76,16 @@ export const StyledForm = styled.form`
 `;
 
 export const CadastroBtn = styled.button`
-    width: 100px;
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin: 5px;
-    cursor: pointer;
-    transition: .3s;
+  width: 100px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 
-    &:hover{
-      background-color: #778899;
-      width: 120px;
-      opacity: 1;
-    }
-`
+  &:hover {
+    background-color: #778899;
+    width: 120px;
+    opacity: 1;
+  }
+`;

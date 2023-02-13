@@ -3,12 +3,10 @@ import NavBarAdm from "../../components/molecules/NavBarAdm/NavBarAdm";
 import { api } from "../../utils/api/api";
 import { Game } from "../../utils/types/data";
 import { useParams } from "react-router-dom";
-
-
+import { BoxContent, BoxDetails, BoxInfo, BoxVideos } from "./style";
 
 const Detail = () => {
   const [gameData, setGameData] = useState<Game>({} as Game);
-  
 
   const { id } = useParams();
 
@@ -27,39 +25,42 @@ const Detail = () => {
         <NavBarAdm />
       </header>
       <main>
-        <div className="BoxDetails">
+        <BoxDetails>
           <h2>{gameData.Title}</h2>
-          <img src={gameData.CoverImageUrl} alt="imagem" />
-          <div className="gameDescription">
-            <p>{gameData.Description}</p>
-            <span>{gameData.Year}</span>
-            <span>{gameData.ImdbScore}</span>
-          </div>
-          <div className="gameVideos">
-            <div className="youtubeVideo">
-              <h3>Trailer</h3>
-              <iframe
-                width="560"
-                height="315"
-                src={gameData.TrailerYouTubeUrl}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <div className="gameplayVideo">
-              <h3>GamePlay</h3>
-              <iframe
-                width="560"
-                height="315"
-                src={gameData.GameplayYouTubeUrl}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
+          <BoxContent>
+            <img src={gameData.CoverImageUrl} alt="imagem" />
+            <BoxVideos>
+              <div className="youtubeVideo">
+                <h3>Trailer</h3>
+                <iframe
+                  width="330"
+                  height="215"
+                  src={gameData.TrailerYouTubeUrl}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="gameplayVideo">
+                <h3>GamePlay</h3>
+                <iframe
+                  width="330"
+                  height="215"
+                  src={gameData.GameplayYouTubeUrl}
+                  title="YouTube video player"
+                  // frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </BoxVideos>
+          </BoxContent>
+          <BoxInfo>
+            <p>Descrição: {gameData.Description}</p>
+            <span>Ano de Lançamento: {gameData.Year}</span>
+            <span>Score - 0/5 pontos: {gameData.ImdbScore} pontos</span>
+          </BoxInfo>
+        </BoxDetails>
       </main>
     </>
   );

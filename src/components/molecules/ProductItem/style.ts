@@ -39,7 +39,7 @@ export const YearScoreItem = styled.div`
   }
 `;
 export const DetalisBtn = styled.button`
-    justify-content: center;
+  justify-content: center;
   border-radius: 5px;
   margin: 0.5rem;
   border: none;

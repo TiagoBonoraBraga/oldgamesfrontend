@@ -129,11 +129,11 @@ export const api = {
   },
 
   getAuth: async () => {
-    try{
-      const response = await axios.get("/auth" )
-      return response.data
+    try {
+      const response = await axios.get("/auth");
+      return response.data;
     } catch (err) {
-      alert(err)
+      alert(err);
     }
   },
 
