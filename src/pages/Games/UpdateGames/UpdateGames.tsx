@@ -3,10 +3,12 @@ import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
 import { api } from "../../../utils/api/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { FormContainer } from "./style";
+import {Game} from '../../../utils/types/data'
+
 
 const UpdateGames = () => {
   const [error, setError] = useState<boolean>(false);
-  const [game, setGame] = useState<string>();
+  const [game, setGame] = useState<Game>();
   const navigate = useNavigate();
 
   const { id } = useParams();

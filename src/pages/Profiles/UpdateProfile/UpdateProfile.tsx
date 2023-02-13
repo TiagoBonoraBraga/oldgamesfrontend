@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import NavBarAdm from "../../../components/molecules/NavBarAdm/NavBarAdm";
 import { api } from "../../../utils/api/api";
+import { Profile } from "../../../utils/types/requests";
 import { FormContainerProfile } from "./style";
 
 const UpdateProfile = () => {
-  const [profile, setProfile] = useState<string>();
+  const [profile, setProfile] = useState<Profile>();
 
   const { id } = useParams();
   const navigate = useNavigate();
